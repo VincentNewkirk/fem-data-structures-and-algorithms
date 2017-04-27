@@ -3,7 +3,7 @@ var Stack = function() {
 };
 
 Stack.prototype.push = function(val) {
-
+  this.storage = this.storage + '/' + val;
 };
 
 Stack.prototype.pop = function() {
