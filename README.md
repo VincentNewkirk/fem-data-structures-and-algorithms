@@ -1,4 +1,4 @@
-# Front End Masters Data Structers and Algorithms
+# Front End Masters Data Structures and Algorithms
 
 This repo goes through the coding challenges presented in Front End Master's Data Structures and Algorithms video course. Exercises can be found [here](https://github.com/kuychaco/algoClass).
 
