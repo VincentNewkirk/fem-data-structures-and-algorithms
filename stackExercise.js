@@ -24,7 +24,17 @@ Stack.prototype.pop = function() {
 };
 
 Stack.prototype.size = function() {
-
+  if (!this.storage) {
+    return 0;
+  };
+  let itemCount = 1;
+  const currentStorage = Array.from(this.storage).reverse();
+  currentStorage.forEach((item) => {
+    if (item === '/') {
+      itemCount += 1;
+    }
+  });
+  return itemCount;
 };
 
 var myWeeklyMenu = new Stack();
@@ -32,3 +42,4 @@ var myWeeklyMenu = new Stack();
 myWeeklyMenu.push('RedBeans');
 myWeeklyMenu.push('Soba');
 myWeeklyMenu.pop();
+myWeeklyMenu.push('Coffee');
