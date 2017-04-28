@@ -81,7 +81,11 @@ Queue.prototype.dequeue = function() {
 // Time complexity:
 
 Queue.prototype.peek = function() {
-  // implement me...
+  for (let key in this.storage) {
+    if (this.storage[key]['position'] === 1) {
+      return this.storage[key].value;
+    }
+  }
 };
 
 Queue.prototype.count = function() {
@@ -93,8 +97,8 @@ const newQueue = new Queue();
 newQueue.enqueue('first');
 newQueue.enqueue('second');
 newQueue.enqueue('third');
-console.log(newQueue.dequeue());
-console.log(newQueue.storage);
+newQueue.dequeue()
+console.log(newQueue.peek());
 
 
 /*
