@@ -51,11 +51,24 @@ What's the time complexity?
  */
 
 function Queue(capacity) {
-  // implement me...
+  this.storage = {};
+  this.idGenerator = 0;
 }
 
 Queue.prototype.enqueue = function(value) {
-  // implement me...
+
+  if (Object.keys(this.storage).length) {
+    for (let key in this.storage) {
+      console.log(this.storage[key]);
+      this.storage[key]['position'] = this.storage[key]['position'] += 1;
+    }
+  }
+
+  this.storage[this.idGenerator] = { value };
+  this.storage[this.idGenerator]['position'] = 0;
+  this.idGenerator += 1;
+
+  return Object.keys(this.storage).length;
 };
 // Time complexity:
 
@@ -73,6 +86,11 @@ Queue.prototype.count = function() {
 };
 // Time complexity:
 
+const newQueue = new Queue();
+newQueue.enqueue('first');
+newQueue.enqueue('second');
+newQueue.enqueue('third');
+console.log(newQueue);
 
 
 /*
