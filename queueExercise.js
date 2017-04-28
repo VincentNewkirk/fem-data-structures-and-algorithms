@@ -89,7 +89,7 @@ Queue.prototype.peek = function() {
 };
 
 Queue.prototype.count = function() {
-  // implement me...
+  return Object.keys(this.storage).length;
 };
 // Time complexity:
 
@@ -99,6 +99,7 @@ newQueue.enqueue('second');
 newQueue.enqueue('third');
 newQueue.dequeue()
 console.log(newQueue.peek());
+console.log(newQueue.count());
 
 
 /*
