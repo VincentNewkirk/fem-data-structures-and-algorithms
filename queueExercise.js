@@ -56,10 +56,8 @@ function Queue(capacity) {
 }
 
 Queue.prototype.enqueue = function(value) {
-
   if (Object.keys(this.storage).length) {
     for (let key in this.storage) {
-      console.log(this.storage[key]);
       this.storage[key]['position'] = this.storage[key]['position'] += 1;
     }
   }
@@ -73,7 +71,18 @@ Queue.prototype.enqueue = function(value) {
 // Time complexity:
 
 Queue.prototype.dequeue = function() {
-  // implement me...
+  let firstOut;
+  let element;
+  for (let key in this.storage) {
+    if (this.storage[key]['position'] === 0) {
+      element = this.storage[key].value;
+      firstOut = key;
+      delete this.storage[key];
+    } else {
+      this.storage[key]['position'] = this.storage[key]['position'] -= 1;
+    }
+  };
+  return element;
 };
 // Time complexity:
 
@@ -90,7 +99,8 @@ const newQueue = new Queue();
 newQueue.enqueue('first');
 newQueue.enqueue('second');
 newQueue.enqueue('third');
-console.log(newQueue);
+console.log(newQueue.dequeue());
+console.log(newQueue.storage);
 
 
 /*
