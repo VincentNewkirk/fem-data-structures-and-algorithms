@@ -1,11 +1,12 @@
 # Front End Masters Data Structers and Algorithms
 
-This repo goes through the coding challenges presented in Front End Master's Data Structures and Algorithms video course. Exercises can be found [here](https://github.com/kuychaco/algoClass)
+This repo goes through the coding challenges presented in Front End Master's Data Structures and Algorithms video course. Exercises can be found [here](https://github.com/kuychaco/algoClass).
 
 # Challenges
 
 ### Pseudoclassical JavaScript
 ```constructors.js```
+
 Create a class, add methods to the class and create an instance of the class.
 
 ## Stacks
