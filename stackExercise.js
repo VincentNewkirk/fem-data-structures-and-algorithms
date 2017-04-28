@@ -74,7 +74,7 @@ Stack.prototype.peek = function() {
 // Time complexity:
 
 Stack.prototype.count = function() {
-  // implement me...
+  return Object.keys(this.storage).length;
 };
 // Time complexity:
 
@@ -84,7 +84,8 @@ newStack.push('hello');
 newStack.push(2);
 newStack.push('bye');
 newStack.pop();
-console.log(newStack.peek());
+console.log(newStack.count());
+console.log(newStack);
 
 /*
 *** Exercises:
