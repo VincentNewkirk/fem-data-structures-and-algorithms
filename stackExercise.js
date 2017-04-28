@@ -69,7 +69,7 @@ Stack.prototype.pop = function() {
 // Time complexity:
 
 Stack.prototype.peek = function() {
-  // implement me...
+  return this.storage[Object.keys(this.storage).length - 1];
 };
 // Time complexity:
 
@@ -83,8 +83,8 @@ const newStack = new Stack();
 newStack.push('hello');
 newStack.push(2);
 newStack.push('bye');
-console.log(newStack.pop());
-console.log(newStack);
+newStack.pop();
+console.log(newStack.peek());
 
 /*
 *** Exercises:
