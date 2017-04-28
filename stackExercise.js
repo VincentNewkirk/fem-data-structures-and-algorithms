@@ -51,11 +51,13 @@ What's the time complexity?
  */
 
 function Stack(capacity) {
-  // implement me...
+  this.storage = {};
 }
 
 Stack.prototype.push = function(value) {
-  // implement me...
+  const keyCount = Object.keys(this.storage).length;
+  this.storage[keyCount] = value;
+  return Object.keys(this.storage).length;
 };
 // Time complexity:
 
@@ -74,7 +76,10 @@ Stack.prototype.count = function() {
 };
 // Time complexity:
 
-
+// const newStack = new Stack();
+//
+// console.log(newStack.push('hello'));
+// console.log(newStack);
 /*
 *** Exercises:
 
