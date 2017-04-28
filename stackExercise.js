@@ -61,7 +61,10 @@ Stack.prototype.push = function(value) {
 // Time complexity:
 
 Stack.prototype.pop = function() {
-  // implement me...
+  let latestItem = {};
+  latestItem[Object.keys(this.storage).length - 1] = this.storage[Object.keys(this.storage).length - 1];
+  delete this.storage[Object.keys(this.storage).length - 1];
+  return latestItem;
 };
 // Time complexity:
 
@@ -75,10 +78,13 @@ Stack.prototype.count = function() {
 };
 // Time complexity:
 
-// const newStack = new Stack();
-//
-// console.log(newStack.push('hello'));
-// console.log(newStack);
+const newStack = new Stack();
+
+newStack.push('hello');
+newStack.push(2);
+newStack.push('bye');
+console.log(newStack.pop());
+console.log(newStack);
 
 /*
 *** Exercises:
