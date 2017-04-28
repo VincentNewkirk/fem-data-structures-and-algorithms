@@ -55,8 +55,7 @@ function Stack(capacity) {
 }
 
 Stack.prototype.push = function(value) {
-  const keyCount = Object.keys(this.storage).length;
-  this.storage[keyCount] = value;
+  this.storage[Object.keys(this.storage).length] = value;
   return Object.keys(this.storage).length;
 };
 // Time complexity:
@@ -80,6 +79,7 @@ Stack.prototype.count = function() {
 //
 // console.log(newStack.push('hello'));
 // console.log(newStack);
+
 /*
 *** Exercises:
 
