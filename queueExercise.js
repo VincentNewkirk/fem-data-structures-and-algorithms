@@ -56,14 +56,8 @@ function Queue(capacity) {
 }
 
 Queue.prototype.enqueue = function(value) {
-  if (Object.keys(this.storage).length) {
-    for (let key in this.storage) {
-      this.storage[key]['position'] = this.storage[key]['position'] += 1;
-    }
-  }
-
   this.storage[this.idGenerator] = { value };
-  this.storage[this.idGenerator]['position'] = 0;
+  this.storage[this.idGenerator]['position'] = Object.keys(this.storage).length;
   this.idGenerator += 1;
 
   return Object.keys(this.storage).length;
@@ -74,7 +68,7 @@ Queue.prototype.dequeue = function() {
   let firstOut;
   let element;
   for (let key in this.storage) {
-    if (this.storage[key]['position'] === 0) {
+    if (this.storage[key]['position'] === 1) {
       element = this.storage[key].value;
       firstOut = key;
       delete this.storage[key];
