@@ -31,5 +31,17 @@ const recursiveMultiplier = (arr, num) => {
 
 //6. Write a function 'recursiveReverse' that takes an array and uses recursion to return its contents in reverse
 const recursiveReverse = (array) => {
-  
+  const returnArray = [];
+  let counter = array.length - 1;
+
+  const recursiveFunc = (i) => {
+    if (i < 0) {
+      return returnArray;
+    }
+    const element = array.slice(i, i);
+    returnArray.push(i);
+    return recursiveFunc(i - 1);
+  }
+
+  return recursiveFunc(counter);
 };
