@@ -27,3 +27,9 @@ Create a stack (Last in First out) with an object as the underlying data structu
 ```stacks/queueExercise.js```
 
 Same rules apply as Stack Exercise. However, a queue is First in First Out.
+
+## Recursion
+
+```recursion/*```
+
+This directory is filled with exercises and common interview whiteboard questions involving Recursion. Exercises include Factorials, Fibonnaci sequence, reversal of array and strings through recursion and more.
