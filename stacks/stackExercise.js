@@ -82,14 +82,35 @@ Stack.prototype.count = function() {
 };
 // Time complexity:
 
-// const newStack = new Stack();
-//
-// newStack.push('hello');
-// newStack.push(2);
-// newStack.push('bye');
-// newStack.pop();
-// console.log(newStack.count());
-// console.log(newStack);
+Stack.prototype.ascend = function() {
+  const valuesArray = [];
+  for (let key in this.storage) {
+    valuesArray.push(this.storage[key]);
+  };
+  for (let i = 0; i < valuesArray.length; i += 1) {
+    let lowest = valuesArray[i];
+    for (let k = i + 1; k < valuesArray.length; k += 1) {
+      if (valuesArray[k] < lowest) {
+        lowest = valuesArray[k];
+        valuesArray[k] = valuesArray[i];
+        valuesArray[i] = lowest;
+      }
+    }
+  }
+  valuesArray.forEach((ele, i) => {
+    this.storage[i] = ele;
+  })
+};
+
+const MyStack = new Stack(10);
+MyStack.push(10);
+MyStack.push(8);
+MyStack.push(6);
+MyStack.push(4);
+MyStack.push(2);
+MyStack.push(0);
+MyStack.ascend();
+console.log(MyStack);
 
 /*
 *** Exercises:
