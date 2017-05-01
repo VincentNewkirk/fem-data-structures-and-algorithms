@@ -34,7 +34,7 @@ Same rules apply as Stack Exercise. However, a queue is First in First Out.
 
 This directory is filled with exercises and common interview whiteboard questions involving Recursion. Exercises include Factorials, Fibonnaci sequence, reversal of array and strings through recursion and more.
 
-### BigO Notation, Space/Time Complexity
+## BigO Notation, Space/Time Complexity
 
 ```timeComplexity/TC.js```
 
