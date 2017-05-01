@@ -107,8 +107,35 @@ You are given three towers (stacks) and N disks, each of different size. You can
 The disks begin on tower#1. Write a function that will move the disks from tower#1 to tower#3 in such a way that none of the constraints are violated.
  */
 
- var minStack = function(capacity) {
+var MinStack = function(capacity) {
    this.storage = {};
    this.capacity = capacity;
-   this.minInt = null;
- };
+   this.minInt = 'empty';
+};
+
+MinStack.prototype.push = function(value) {
+  if (this.count() >= this.capacity) {
+    return "Capacity reached. Please remove items from stack before adding more."
+  }
+
+  this.storage[this.count()] = value;
+
+  if (typeof this.minInt === 'string') {
+    this.minInt = value;
+  } else if (this.minInt > value) {
+    this.minInt = value;
+  }
+  return this.count();
+};
+
+MinStack.prototype.count = function() {
+   return Object.keys(this.storage).length;
+};
+
+// var Tiny = new MinStack(5);
+// Tiny.push(3);
+// Tiny.push(5);
+// Tiny.push(2);
+// Tiny.push(0);
+// Tiny.push(-1)
+// console.log(Tiny);
