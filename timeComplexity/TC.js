@@ -7,7 +7,7 @@ var countChars = function(str){
 };
 countChars("dance");
 countChars("walk");
-//Time Complexity:
+//Time Complexity: O(n)
 
 var countChars = function(str){
   return str.length;
