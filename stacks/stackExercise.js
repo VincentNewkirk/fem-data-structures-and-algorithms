@@ -52,11 +52,15 @@ What's the time complexity?
 
 function Stack(capacity) {
   this.storage = {};
+  this.capacity = capacity;
 }
 
 Stack.prototype.push = function(value) {
-  this.storage[Object.keys(this.storage).length] = value;
-  return Object.keys(this.storage).length;
+  if (this.count() >= this.capacity) {
+    return "Capacity reached. Please remove items from stack before adding more."
+  }
+  this.storage[this.count()] = value;
+  return this.count();
 };
 // Time complexity:
 
