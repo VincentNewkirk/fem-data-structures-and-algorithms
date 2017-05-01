@@ -14,15 +14,16 @@ var countChars = function(str){
 };
 countChars("dance");
 countChars("walk");
-//Time Complexity:
+//Time Complexity: O(1)
 //How much more work would it take to get the
 //length of 1 million char string?
+//Answer: It is Constant time complexity. It would be the same.
 
 var myList = ["hello", "hola"];
-//Time Complexity:
+//Time Complexity: O(1)
 myList.push("bonjour");
-//Time Complexity:
+//Time Complexity: O(1)
 myList.unshift();
-//Time Complexity:
+//Time Complexity: O(n)
 //calculate the time complexity for the
 //native methods above (separately)
