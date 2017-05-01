@@ -21,9 +21,10 @@ Variants:
 */
 
 const bubbleSort = (arr) => {
+  let stoppingPoint = 1;
   for (let i = 0; i < arr.length - 1; i++) {
     let sorted = true;
-    for (let k = 0; k < arr.length - 1; k++) {
+    for (let k = 0; k < arr.length - stoppingPoint; k++) {
       if (arr[k] > arr[k + 1]) {
         const ele = arr[k];
         arr[k] = arr[k + 1];
@@ -33,15 +34,20 @@ const bubbleSort = (arr) => {
       if (sorted && k === arr.length - 2) {
         return `ADAPTED! [${arr}]`;
       }
+      if (k === arr.length - stoppingPoint - 1) {
+        stoppingPoint += 1;
+      }
     };
   };
   return arr;
 };
 //Time Complexity: O(n^2)
 //Adapted Time Complexity: O(n^2)
+//Optimized Time Complexity: O(n^2)
+  //(Because we must always assume the worst path when estimating Time Complexity.)
 
 const testArr = [2,4,10,0,8,3,5];
 const testArr2 = [10,2,5,1,5,9];
 const semiSorted = [1,3,4,5,2];
 
-console.log(bubbleSort(semiSorted));
+console.log(bubbleSort(testArr));
