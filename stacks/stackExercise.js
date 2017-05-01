@@ -78,19 +78,20 @@ Stack.prototype.count = function() {
 };
 // Time complexity:
 
-const newStack = new Stack();
-
-newStack.push('hello');
-newStack.push(2);
-newStack.push('bye');
-newStack.pop();
-console.log(newStack.count());
-console.log(newStack);
+// const newStack = new Stack();
+//
+// newStack.push('hello');
+// newStack.push(2);
+// newStack.push('bye');
+// newStack.pop();
+// console.log(newStack.count());
+// console.log(newStack);
 
 /*
 *** Exercises:
 
 1. Implement a stack with a min method which returns the minimum element currently in the stack. This method should have O(1) time complexity. Make sure your implementation handles duplicates.
+*** By minimum element she means an Integer. So I need to assume that everything being added to the stack is an Int =/ ***
 
 2. Sort a stack so that its elements are in ascending order.
 
@@ -105,3 +106,9 @@ You are given three towers (stacks) and N disks, each of different size. You can
    3. no disk can be placed on top of a disk that is smaller than it
 The disks begin on tower#1. Write a function that will move the disks from tower#1 to tower#3 in such a way that none of the constraints are violated.
  */
+
+ var minStack = function(capacity) {
+   this.storage = {};
+   this.capacity = capacity;
+   this.minInt = null;
+ };
