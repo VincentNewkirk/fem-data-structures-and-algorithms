@@ -46,7 +46,7 @@ Code examples in which you must notate the time complexity of each algorithm. Sl
 
 ### Bubble Sort
 
-Implement Bubble Sort.
+Implement Bubble Sort. Average Complexity: O(n^2). Best Time Complexity: O(n).
 
 Optional exercises(completed):
 
