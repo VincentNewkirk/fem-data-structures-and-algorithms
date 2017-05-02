@@ -29,3 +29,19 @@ now repeat for next unsorted element
 (https://en.wikipedia.org/wiki/Shellsort)
 
 */
+
+const insertionSort = (arr) => {
+  for (let i = 0; i < arr.length - 1; i += 1){
+    for (let k = i + 1; k > 0; k -= 1) {
+      if (arr[k] < arr[k - 1]) {
+        const element = arr[k];
+        arr[k] = arr[k - 1];
+        arr[k - 1] = element;
+      }
+    };
+  };
+  return arr;
+};
+
+const testArr = [5,4,6,2,7,1];
+console.log(insertionSort(testArr));
