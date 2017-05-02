@@ -45,6 +45,7 @@ const bubbleSort = (arr) => {
 //Adapted Time Complexity: O(n^2)
 //Optimized Time Complexity: O(n^2)
   //(Because we must always assume the worst path when estimating Time Complexity.)
+//Best Time Complexity: O(n)
 
 const testArr = [2,4,10,0,8,3,5];
 const testArr2 = [10,2,5,1,5,9];

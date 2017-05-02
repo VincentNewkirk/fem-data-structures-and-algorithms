@@ -32,10 +32,24 @@ Same rules apply as Stack Exercise. However, a queue is First in First Out.
 
 ```recursion/*```
 
-This directory is filled with exercises and common interview whiteboard questions involving Recursion. Exercises include Factorials, Fibonnaci sequence, reversal of array and strings through recursion and more.
+This directory is filled with exercises and common interview whiteboard questions involving Recursion. Exercises include Factorials, Fibonnaci sequence, reversal of array and strings through recursion and more. I have not completed all "interview" exercises in this directory.
 
 ## BigO Notation, Space/Time Complexity
 
 ```timeComplexity/TC.js```
 
 Code examples in which you must notate the time complexity of each algorithm. Slides and exercise can be found [here](http://slides.com/bgando/sorting#/0/20).
+
+## Sorting Algorithms
+
+```sortingAlgorithms/*```
+
+### Bubble Sort
+
+Implement Bubble Sort.
+
+Optional exercises(completed):
+
+Make Algorithm Adaptive. If at any point the array is already sorted, break out of algorithm early.
+
+Optimize algorithm by avoiding unnecessary comparisons. I solved this by not iterating to the end of the array after each iteration.
