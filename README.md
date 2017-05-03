@@ -53,3 +53,13 @@ Optional exercises(completed):
 Make Algorithm Adaptive. If at any point the array is already sorted, break out of algorithm early.
 
 Optimize algorithm by avoiding unnecessary comparisons. I solved this by not iterating to the end of the array after each iteration.
+
+### Insertion Sort
+
+Implement Insertion Sort. Average Time Complexity: O(n^2). Best Time Complexity: O(n).
+
+Optional Exercises(not completed yet):
+
+Allow your algorithm to take a comparator function. Look at array.sort comparator function for an example (I'm still not sure what a comparator function is after looking at array.sort)
+
+Use the comparator function to ensure your sort is stable.
