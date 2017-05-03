@@ -64,7 +64,7 @@ Allow your algorithm to take a comparator function. Look at array.sort comparato
 
 Use the comparator function to ensure your sort is stable.
 
-## Selection Sort
+### Selection Sort
 
 Implement Selection Sort. Average Time Complexity: O(n^2). Best Time Complexity: 0(n).
 
