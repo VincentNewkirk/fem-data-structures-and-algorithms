@@ -38,11 +38,10 @@ const selectionSort = (arr) => {
         lowest = arr[k];
         index = k;
       }
-      if (k === arr.length - 1) {
+      if (k === arr.length - 1 && index) {
         let element = arr[i];
         arr[i] = lowest;
         arr[index] = element;
-        console.log(arr);
       }
     }
   }
