@@ -47,6 +47,7 @@ const selectionSort = (arr) => {
   }
   return arr;
 };
+//Time Complexity: 0(n^2)
 
 const testArr = [2,5,1,6,3,8];
 console.log(selectionSort(testArr));

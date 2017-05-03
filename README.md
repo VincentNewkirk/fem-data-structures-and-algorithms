@@ -63,3 +63,5 @@ Optional Exercises(not completed yet):
 Allow your algorithm to take a comparator function. Look at array.sort comparator function for an example (I'm still not sure what a comparator function is after looking at array.sort)
 
 Use the comparator function to ensure your sort is stable.
+
+## Selection Sort
