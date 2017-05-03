@@ -63,6 +63,6 @@ const mergeSort = (arr) => {
 
 };
 
-const testArr = [23,1,25,43,12,65,34,50];
+const testArr = [23,1,25,43,12,65,34,50,63];
 
 console.log(mergeSort(testArr));
