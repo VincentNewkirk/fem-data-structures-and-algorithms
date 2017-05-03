@@ -42,6 +42,7 @@ const insertionSort = (arr) => {
   };
   return arr;
 };
+//Time Complexity: O(n^2)
 
 const testArr = [5,4,6,2,7,1];
 console.log(insertionSort(testArr));
