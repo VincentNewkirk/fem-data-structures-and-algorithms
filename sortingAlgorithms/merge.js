@@ -41,7 +41,7 @@ const mergeSort = (arr) => {
     let leftCounter = 0;
     let rightCounter = 0;
     const returnArray = [];
-    while (leftCounter !== leftArray.length - 1 && rightCounter !== rightArray.length -1) {
+    while (leftCounter < leftArray.length || rightCounter < rightArray.length) {
       if (!leftArray[leftCounter]) {
         returnArray.push(rightArray[rightCounter]);
         rightCounter += 1;
