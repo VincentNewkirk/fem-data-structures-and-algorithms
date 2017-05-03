@@ -62,6 +62,7 @@ const mergeSort = (arr) => {
   return merge(lArray, rArray);
 
 };
+//Time Complexity: 0(n*logn)
 
 const testArr = [23,1,25,43,12,65,34,50,63];
 
