@@ -97,7 +97,13 @@ function LinkedList(headValue) {
 }
 
 LinkedList.prototype.forEach = function(callback) {
-
+  if (this.head) {
+    let currentNode = this.head;
+    while (currentNode) {
+      callback(currentNode.value);
+      currentNode = currentNode.next;
+    }
+  }
 };
 // Time complexity:
 
@@ -194,7 +200,7 @@ LinkedList.prototype.appendToTail = function(value) {
   this.tail = newTail;
   return newTail;
 };
-// Time complexity:
+// Time complexity: Constant
 
 
 // PART 2:
@@ -213,7 +219,10 @@ const myLL = new LinkedList(10);
 myLL.insertAfter(10, 5);
 myLL.insertAfter(10, 3);
 myLL.insertHead(1);
-console.log(myLL.appendToTail(20));
+myLL.appendToTail(20);
+myLL.forEach(function(value){
+  console.log(value);
+})
 
 /*
 *** Exercises:
