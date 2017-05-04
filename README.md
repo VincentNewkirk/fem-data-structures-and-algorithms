@@ -76,4 +76,8 @@ Allow your algorithm to take a comparator function, just like Insertion Sort. (I
 
 ### Merge Sort
 
-Implement merge sort recursively. Time complexity: 0(n*logn).
+Implement merge sort recursively. Time complexity: 0(n*log(n)).
+
+### Quick Sort
+
+Implement quick sort recursively. Average Time Compleity: O(n*log(n)).
