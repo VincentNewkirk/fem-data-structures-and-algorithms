@@ -1,5 +1,5 @@
 /*
-QUICK SORT
+MERGE SORT
 
 *** Description
 
@@ -10,8 +10,10 @@ It has a partitioning step, in which you pick an element (called a pivot) and pa
 *** Exercises
 
 - Write a partition helper function. For choice of pivot, for a basic implementation, we recommend choosing either the first or last element in the subarray. If you need hints, look up the Lumoto partiton scheme. Test this out before moving forward!
-- Implement quicksort
+- Implement quicksort iteratively
+- Implement quicksort recursively
 - Identify time complexity
+- Identify space complexity
 
 - Consider implications for choice of pivot (https://en.wikipedia.org/wiki/Quicksort#Choice_of_pivot)
 
@@ -22,26 +24,58 @@ Variants:
 
 */
 
-const quickSort = (arr, lo, hi) => {
-  let pivot = arr.length - 1;
-  let pivotValue;
-  let index = lo || 0;
-  while (index !== pivot) {
-    if (arr[index] > arr[pivot]) {
-      pivotValue = arr[pivot];
-      arr[pivot] = arr[index];
-      arr[index] = pivotValue;
-      pivot -= 1;
-      pivotValue = arr[pivot];
-      arr[pivot] = arr[index];
-      arr[index] = pivotValue;
-    } else {
-      index += 1;
-    }
+
+
+/*
+Properties:
+O(n) extra space
+O(n^2) time (for few unique keys), but typically O(n·log(n)) if recursion is balanced
+not stable
+not adaptive
+
+Use cases:
+Quicksort is in place and has low overhead. If a stable sort is not necessary. It has a higher worstcase time complexity than merge sort (if pivot is not in center of array)
+*/
+function quicksort(array, lo, hi) {
+  if (lo === undefined) lo = 0;
+  if (hi === undefined) hi = array.length-1;
+
+  if (lo < hi) {
+    // partition array
+    var p = partition(array, lo, hi);
+    console.log('partitioning from', lo, 'to', hi, '=> partition:',  p);
+    // sort subarrays
+    quicksort(array, lo, p-1);
+    quicksort(array, p+1, hi);
   }
-  return arr;
+
+  // for initial call, return sorted array
+  if (hi-lo === array.length-1) return array;
 }
 
-const testArr = [8,6,1,3,7,4,9,2];
+// Lomuto partition scheme
+function partition(arr, lo, hi) {
+  // choose last element as pivot
+  var pivot = arr[hi];
+  // keep track of index to put pivot at
+  var pivotLoc = lo;
+  // iterate through subarray and if element <= pivot, place element before pivotLoc
+  for (var i=lo; i<hi; i++) {
+    if (arr[i] <= pivot) {
+      swap(arr, pivotLoc, i);
+      pivotLoc++;
+    }
+  }
+  // move pivot to its proper location
+  swap(arr, pivotLoc, hi);
+  return pivotLoc;
+}
 
-console.log(quickSort(testArr));
+function swap (arr, i1, i2) {
+  if (i1 === i2) return;
+  var temp = arr[i1];
+  arr[i1] = arr[i2];
+  arr[i2] = temp;
+  console.log('swapped', arr[i1], arr[i2], 'in', arr);
+  return arr;
+}
