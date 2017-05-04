@@ -87,11 +87,17 @@ function Node(value) {
 
 function LinkedList(headValue) {
   if (headValue === undefined) console.log('Must provide value for first node');
-  this.head = new Node(headValue);
+  let newNode = new Node(headValue);
+  if (this.head) {
+    newNode.next = this.head;
+  } else {
+    this.tail = newNode;
+  }
+  this.head = newNode;
 }
 
 LinkedList.prototype.forEach = function(callback) {
-  // implement me...
+
 };
 // Time complexity:
 
@@ -142,7 +148,8 @@ LinkedList.prototype.removeBefore = function(node) {
 };
 // Time complexity:
 
-
+const myLL = new LinkedList(10);
+console.log(myLL);
 
 /*
 *** Exercises:
