@@ -189,7 +189,10 @@ LinkedList.prototype.findNode = function(value) {
 // Time complexity: O(n) Linear
 
 LinkedList.prototype.appendToTail = function(value) {
-  // implement me...
+  const newTail = new Node(value);
+  this.tail.next = newTail;
+  this.tail = newTail;
+  return newTail;
 };
 // Time complexity:
 
@@ -210,7 +213,7 @@ const myLL = new LinkedList(10);
 myLL.insertAfter(10, 5);
 myLL.insertAfter(10, 3);
 myLL.insertHead(1);
-console.log(myLL.findNode(5))
+console.log(myLL.appendToTail(20));
 
 /*
 *** Exercises:
