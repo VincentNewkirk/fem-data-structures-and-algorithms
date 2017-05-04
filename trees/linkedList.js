@@ -82,6 +82,7 @@ Reimplement stack and queue data structures using linked lists.
 
 function Node(value) {
   this.next = null;
+  this.prev = null;
   this.value = value;
 }
 
@@ -90,6 +91,7 @@ function LinkedList(headValue) {
   let newNode = new Node(headValue);
   if (this.head) {
     newNode.next = this.head;
+    this.head.prev = newNode;
   } else {
     this.tail = newNode;
   }
@@ -100,9 +102,11 @@ LinkedList.prototype.forEach = function(callback) {
   if (this.head) {
     let currentNode = this.head;
     while (currentNode) {
-      callback(currentNode.value);
+      callback(currentNode);
       currentNode = currentNode.next;
     }
+  } else {
+    return 'No nodes added to list yet.'
   }
 };
 // Time complexity:
@@ -134,6 +138,7 @@ LinkedList.prototype.insertAfter = function(node, value) {
       } else {
         this.tail = newNode;
       }
+      newNode.prev = currentNode;
       currentNode.next = newNode;
       return newNode;
     } else {
@@ -153,6 +158,7 @@ LinkedList.prototype.removeAfter = function(node) {
         this.tail = currentNode;
       } else {
         currentNode.next = currentNode.next.next;
+        currentNode.next.prev = currentNode;
       }
       return returnNode;
     } else {
@@ -165,6 +171,7 @@ LinkedList.prototype.removeAfter = function(node) {
 LinkedList.prototype.insertHead = function(value) {
   let newHead = new Node(value);
   newHead.next = this.head;
+  this.head.prev = newHead;
   this.head = newHead;
   return this.head;
 };
@@ -174,6 +181,7 @@ LinkedList.prototype.removeHead = function() {
   const returnNode = this.head;
   if (this.head.next) {
     this.head = this.head.next;
+    this.head.prev = null;
     return returnNode;
   }
   this.head = null;
@@ -196,6 +204,7 @@ LinkedList.prototype.findNode = function(value) {
 
 LinkedList.prototype.appendToTail = function(value) {
   const newTail = new Node(value);
+  newTail.prev = this.tail;
   this.tail.next = newTail;
   this.tail = newTail;
   return newTail;
@@ -220,8 +229,8 @@ myLL.insertAfter(10, 5);
 myLL.insertAfter(10, 3);
 myLL.insertHead(1);
 myLL.appendToTail(20);
-myLL.forEach(function(value){
-  console.log(value);
+myLL.forEach(function(node) {
+  console.log(`The value is ${node.value} and the prev is ${node.prev}`)
 })
 
 /*
