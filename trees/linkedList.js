@@ -173,11 +173,20 @@ LinkedList.prototype.removeHead = function() {
   this.head = null;
   return returnNode;
 }
+//Time Complexity: Constant
 
 LinkedList.prototype.findNode = function(value) {
-  // implement me...
+  let currentNode = this.head;
+  while (currentNode) {
+    if (currentNode.value === value) {
+      return currentNode
+    } else {
+      currentNode = currentNode.next;
+    }
+  }
+  return 'No nodes matched your search.'
 };
-// Time complexity:
+// Time complexity: O(n) Linear
 
 LinkedList.prototype.appendToTail = function(value) {
   // implement me...
@@ -201,8 +210,7 @@ const myLL = new LinkedList(10);
 myLL.insertAfter(10, 5);
 myLL.insertAfter(10, 3);
 myLL.insertHead(1);
-console.log(myLL.removeHead());
-console.log(myLL)
+console.log(myLL.findNode(5))
 
 /*
 *** Exercises:
