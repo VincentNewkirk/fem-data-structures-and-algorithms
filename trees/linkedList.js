@@ -96,6 +96,7 @@ function LinkedList(headValue) {
     this.tail = newNode;
   }
   this.head = newNode;
+  this[headValue] = newNode;
 }
 
 LinkedList.prototype.forEach = function(callback) {
@@ -140,6 +141,7 @@ LinkedList.prototype.insertAfter = function(node, value) {
       }
       newNode.prev = currentNode;
       currentNode.next = newNode;
+      this[value] = newNode;
       return newNode;
     } else {
       currentNode = currentNode.next;
@@ -173,6 +175,7 @@ LinkedList.prototype.insertHead = function(value) {
   newHead.next = this.head;
   this.head.prev = newHead;
   this.head = newHead;
+  this[value] = newHead;
   return this.head;
 };
 // Time complexity: Constant
@@ -190,20 +193,25 @@ LinkedList.prototype.removeHead = function() {
 //Time Complexity: Constant
 
 LinkedList.prototype.findNode = function(value) {
-  let currentNode = this.head;
-  while (currentNode) {
-    if (currentNode.value === value) {
-      return currentNode
-    } else {
-      currentNode = currentNode.next;
-    }
+  // let currentNode = this.head;
+  // while (currentNode) {
+  //   if (currentNode.value === value) {
+  //     return currentNode
+  //   } else {
+  //     currentNode = currentNode.next;
+  //   }
+  // }
+  // return 'No nodes matched your search.'
+  if (this[value]) {
+    return this[value]
   }
-  return 'No nodes matched your search.'
+  return 'No nodes matched your search';
 };
 // Time complexity: O(n) Linear
 
 LinkedList.prototype.appendToTail = function(value) {
   const newTail = new Node(value);
+  this[value] = newTail;
   newTail.prev = this.tail;
   this.tail.next = newTail;
   this.tail = newTail;
@@ -229,9 +237,12 @@ myLL.insertAfter(10, 5);
 myLL.insertAfter(10, 3);
 myLL.insertHead(1);
 myLL.appendToTail(20);
-myLL.forEach(function(node) {
-  console.log(`The value is ${node.value} and the prev is ${node.prev}`)
-})
+// myLL.forEach(function(node) {
+//   let prevVal;
+//   if (node.prev.value)
+//   console.log(`The value is ${node.value} and the prev is ${prevVal}`)
+// })
+console.log(myLL);
 
 /*
 *** Exercises:
