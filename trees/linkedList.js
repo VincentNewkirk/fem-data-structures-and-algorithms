@@ -102,7 +102,17 @@ LinkedList.prototype.forEach = function(callback) {
 // Time complexity:
 
 LinkedList.prototype.print = function() {
-  // implement me...
+  let node = this.head;
+  let returnStr = '';
+  while (node) {
+    if (!returnStr) {
+      returnStr = `${node.value}`;
+    } else {
+      returnStr = returnStr + `, ${node.value}`;
+    }
+    node = node.next;
+  }
+  return returnStr;
 };
 // Time complexity:
 
@@ -149,7 +159,7 @@ LinkedList.prototype.removeBefore = function(node) {
 // Time complexity:
 
 const myLL = new LinkedList(10);
-console.log(myLL);
+console.log(myLL.print());
 
 /*
 *** Exercises:
