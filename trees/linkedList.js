@@ -207,7 +207,7 @@ LinkedList.prototype.findNode = function(value) {
   }
   return 'No nodes matched your search';
 };
-// Time complexity: O(n) Linear
+// Time complexity: O(1) Constant
 
 LinkedList.prototype.appendToTail = function(value) {
   const newTail = new Node(value);
@@ -223,9 +223,18 @@ LinkedList.prototype.appendToTail = function(value) {
 // PART 2:
 
 LinkedList.prototype.insertBefore = function(node, value) {
-  // implement me...
+  if(this[node]) {
+    const newNode = new Node(value);
+    this[value] = newNode;
+    newNode.prev = this[node].prev;
+    this[node].prev.next = newNode;
+    newNode.next = this[node];
+    this[node].prev = newNode;
+    return newNode;
+  }
+  return 'No node matched your search'
 };
-// Time complexity:
+// Time complexity: O(1) Constant
 
 LinkedList.prototype.removeBefore = function(node) {
   // implement me...
@@ -242,7 +251,8 @@ myLL.appendToTail(20);
 //   if (node.prev.value)
 //   console.log(`The value is ${node.value} and the prev is ${prevVal}`)
 // })
-console.log(myLL);
+myLL.insertBefore(20, 14);
+console.log(myLL.findNode(5));
 
 /*
 *** Exercises:
