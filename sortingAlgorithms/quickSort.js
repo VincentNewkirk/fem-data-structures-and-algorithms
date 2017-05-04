@@ -21,3 +21,27 @@ Variants:
 - Implement a multi-pivot quicksort (ex: partition into 3 subarrays using 2 pivots)
 
 */
+
+const quickSort = (arr, lo, hi) => {
+  let pivot = arr.length - 1;
+  let pivotValue;
+  let index = lo || 0;
+  while (index !== pivot) {
+    if (arr[index] > arr[pivot]) {
+      pivotValue = arr[pivot];
+      arr[pivot] = arr[index];
+      arr[index] = pivotValue;
+      pivot -= 1;
+      pivotValue = arr[pivot];
+      arr[pivot] = arr[index];
+      arr[index] = pivotValue;
+    } else {
+      index += 1;
+    }
+  }
+  return arr;
+}
+
+const testArr = [8,6,1,3,7,4,9,2];
+
+console.log(quickSort(testArr));
