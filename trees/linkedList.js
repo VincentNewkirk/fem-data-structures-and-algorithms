@@ -162,10 +162,16 @@ LinkedList.prototype.insertHead = function(value) {
   this.head = newHead;
   return this.head;
 };
-// Time complexity:
+// Time complexity: Constant
 
 LinkedList.prototype.removeHead = function() {
-  // implement me...
+  const returnNode = this.head;
+  if (this.head.next) {
+    this.head = this.head.next;
+    return returnNode;
+  }
+  this.head = null;
+  return returnNode;
 }
 
 LinkedList.prototype.findNode = function(value) {
@@ -195,7 +201,8 @@ const myLL = new LinkedList(10);
 myLL.insertAfter(10, 5);
 myLL.insertAfter(10, 3);
 myLL.insertHead(1);
-console.log(myLL.head);
+console.log(myLL.removeHead());
+console.log(myLL)
 
 /*
 *** Exercises:
