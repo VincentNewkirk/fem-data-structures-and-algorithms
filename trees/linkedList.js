@@ -114,7 +114,7 @@ LinkedList.prototype.print = function() {
   }
   return returnStr;
 };
-// Time complexity: O(n) Linear
+// Time complexity: O(n) Linearg
 
 LinkedList.prototype.insertAfter = function(node, value) {
   let currentNode = this.head;
@@ -138,7 +138,21 @@ LinkedList.prototype.insertAfter = function(node, value) {
 // Time complexity: 0(n) Linear
 
 LinkedList.prototype.removeAfter = function(node) {
-  // implement me...
+  let currentNode = this.head;
+  while (currentNode) {
+    if (currentNode.value === node) {
+      let returnNode = currentNode.next;
+      if (currentNode.next === this.tail) {
+        currentNode.next = null;
+        this.tail = currentNode;
+      } else {
+        currentNode.next = currentNode.next.next;
+      }
+      return returnNode;
+    } else {
+      currentNode = currentNode.next;
+    }
+  }
 };
 // Time complexity:
 
@@ -176,8 +190,10 @@ LinkedList.prototype.removeBefore = function(node) {
 
 const myLL = new LinkedList(10);
 myLL.insertAfter(10, 5);
-console.log(myLL.insertAfter(10, 3));
-console.log(myLL);
+myLL.insertAfter(10, 3);
+
+console.log(myLL.removeAfter(3));
+console.log(myLL)
 
 /*
 *** Exercises:
