@@ -162,6 +162,7 @@ LinkedList.prototype.removeAfter = function(node) {
         currentNode.next = currentNode.next.next;
         currentNode.next.prev = currentNode;
       }
+      delete this[node];
       return returnNode;
     } else {
       currentNode = currentNode.next;
