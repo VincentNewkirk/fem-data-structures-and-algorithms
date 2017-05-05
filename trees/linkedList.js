@@ -238,7 +238,10 @@ LinkedList.prototype.insertBefore = function(node, value) {
 // Time complexity: O(1) Constant
 
 LinkedList.prototype.removeBefore = function(node) {
-  // implement me...
+  let removedNode = this[node].prev;
+  removedNode.prev.next = this[node];
+  delete this[node].prev;
+  return removedNode;
 };
 // Time complexity:
 
@@ -253,7 +256,7 @@ myLL.appendToTail(20);
 //   console.log(`The value is ${node.value} and the prev is ${prevVal}`)
 // })
 myLL.insertBefore(20, 14);
-console.log(myLL.findNode(5));
+console.log(myLL.removeBefore(5));
 
 /*
 *** Exercises:
