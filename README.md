@@ -81,3 +81,17 @@ Implement merge sort recursively. Time complexity: 0(n*log(n)).
 ### Quick Sort
 
 Implement quick sort recursively. Average Time Compleity: O(n*log(n)).
+
+## Trees & Searching
+
+```trees/```
+
+### Linked List
+
+Implement a Linked List made out of a Class. Linked Lists are not inserted into arrays to be help keep track of placement.
+
+Optimizations:
+
+Implement a Doubly-Linked-List. I did this by adding a .prev key to the node to reference the previous node in the list.
+
+Find a way to make the insert and remove methods Constant Time O(1) instead of iterating through all the nodes to find the one you want to remove or add. I did this by creating a key on the constructor with the value of the node being added. This way, I can simply perform a property look up (O(1)) to find the node.
